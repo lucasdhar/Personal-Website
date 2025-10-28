@@ -7,423 +7,331 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/desktop.css">
+    <link rel="stylesheet" href="styles/card.css">
 </head>
 <body>
     <div class="grid-bg"></div>
 
-    <!-- Desktop Container -->
-    <div class="desktop">
-        <!-- Desktop Icons -->
-        <div class="desktop-icons">
-            <div class="desktop-icon" data-window="about">
-                <div class="icon-image">👨‍💻</div>
-                <div class="icon-label">About Me</div>
-            </div>
-            <div class="desktop-icon" data-window="experience">
-                <div class="icon-image">💼</div>
-                <div class="icon-label">Experience</div>
-            </div>
-            <div class="desktop-icon" data-window="projects">
-                <div class="icon-image">🚀</div>
-                <div class="icon-label">Projects</div>
-            </div>
-            <div class="desktop-icon" data-window="technologies">
-                <div class="icon-image">⚙️</div>
-                <div class="icon-label">Technologies</div>
-            </div>
-            <div class="desktop-icon" data-window="connect">
-                <div class="icon-image">📱</div>
-                <div class="icon-label">Connect</div>
-            </div>
-            <div class="desktop-icon" data-window="model">
-                <div class="icon-image">📸</div>
-                <div class="icon-label">Model Portfolio</div>
-            </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Profile Image -->
+        <div class="profile-image-container">
+            <img class="dark-image" src="./assets/images/dark-image.PNG" alt="Lucas Dhar - Dark Mode">
+            <img class="light-image" src="./assets/images/light-image.PNG" alt="Lucas Dhar - Light Mode">
         </div>
 
-        <!-- Windows Container -->
-        <div class="windows-container">
-            <!-- About Me Window -->
-            <div class="window" id="about-window" data-window="about">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">👨‍💻</span>
-                        About Me
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
+        <!-- Main Card -->
+        <div class="main-card">
+            <!-- Card Header -->
+            <div class="card-header">
+                <div class="welcome-section">
+                    <h1 class="welcome-text">Hi I'm <span class="name-highlight">Lucas</span></h1>
+                    <p class="tagline">developer & model</p>
                 </div>
-                <div class="window-content">
-                    <div class="about-section">
-                        <div class="about-content">
-                            <p>I'm a passionate Computer Science student at the University of Washington with a deep love for problem-solving and innovation. My journey in tech has led me to explore various aspects of software development, from full-stack web applications to cloud computing and AI integration.</p>
-                            <br>
-                            <p>With experience at BlackRock and Microsoft, I thrive on turning complex challenges into elegant solutions, and I'm constantly learning new technologies to stay at the forefront of the ever-evolving tech landscape. Currently pursuing my Bachelor of Arts in Computer Science with a Minor in Data Science.</p>
-                        </div>
-                        <div class="about-image">
-                            <img class="dark-image" src="./assets/images/dark-image.PNG" alt="Lucas Dhar - Dark Mode" id="darkImage">
-                            <img class="light-image" src="./assets/images/light-image.PNG" alt="Lucas Dhar - Light Mode" id="lightImage">
-                        </div>
+
+                <div class="header-controls">
+                    <div class="mode-toggle" onclick="toggleMode()">
+                        <span class="mode-icon">🌙</span>
+                        <div class="mode-slider"></div>
+                        <span class="mode-icon">☀️</span>
+                    </div>
+                    <div class="tab-switcher">
+                        <div class="tab-indicator" id="tabIndicator"></div>
+                        <button class="tab-button active" data-tab="engineer">Software Engineer</button>
+                        <button class="tab-button" data-tab="model">Model</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Experience Window -->
-            <div class="window" id="experience-window" data-window="experience">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">💼</span>
-                        Professional Experience
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
-                </div>
-                <div class="window-content">
-                    <div class="experience-grid">
-                        <div class="experience-card">
-                            <img class="company-logo" src="https://logos-world.net/wp-content/uploads/2021/08/BlackRock-Logo.png" alt="BlackRock Logo">
-                            <div class="company-icon blackrock">BR</div>
-                            <div class="experience-company">BlackRock</div>
-                            <div class="experience-title">Summer Analyst Intern - Software Engineer</div>
-                            <div class="experience-team">Aladdin Engineering Team</div>
-                            <div class="experience-summary">
-                                Developed secure internal APIs and scalable backend systems, delivering $70K immediate ROI while decommissioning legacy libraries for projected $500K annual savings.
+            <!-- Navigation (Software Engineer) -->
+            <nav class="card-nav" id="engineerNav">
+                <button class="nav-button active" data-section="about">About</button>
+                <button class="nav-button" data-section="experience">Experience</button>
+                <button class="nav-button" data-section="projects">Projects</button>
+                <button class="nav-button" data-section="technologies">Technologies</button>
+                <button class="nav-button" data-section="contact">Contact</button>
+            </nav>
+
+            <!-- Content Container -->
+            <div class="card-content">
+                <!-- Software Engineer Sections -->
+                <div class="content-tab active" id="engineer-content">
+                    <!-- About Section -->
+                    <section class="content-section active" id="about-section">
+                        <p>I'm a passionate Computer Science student at the University of Washington with a deep love for problem-solving and innovation. My journey in tech has led me to explore various aspects of software development, from full-stack web applications to cloud computing and AI integration.</p>
+                        <br>
+                        <p>With experience at BlackRock and Microsoft, I thrive on turning complex challenges into elegant solutions, and I'm constantly learning new technologies to stay at the forefront of the ever-evolving tech landscape. Currently pursuing my Bachelor of Arts in Computer Science with a Minor in Data Science.</p>
+                    </section>
+
+                    <!-- Experience Section -->
+                    <section class="content-section" id="experience-section">
+                        <div class="experience-grid">
+                            <div class="experience-card">
+                                <img class="company-logo" src="https://logos-world.net/wp-content/uploads/2021/08/BlackRock-Logo.png" alt="BlackRock Logo">
+                                <div class="company-icon blackrock">BR</div>
+                                <div class="experience-company">BlackRock</div>
+                                <div class="experience-title">Summer Analyst Intern - Software Engineer</div>
+                                <div class="experience-team">Aladdin Engineering Team</div>
+                                <div class="experience-summary">
+                                    Developed secure internal APIs and scalable backend systems, delivering $70K immediate ROI while decommissioning legacy libraries for projected $500K annual savings.
+                                </div>
+                            </div>
+
+                            <div class="experience-card">
+                                <img class="company-logo" src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b" alt="Microsoft Logo">
+                                <div class="company-icon microsoft">MS</div>
+                                <div class="experience-company">Microsoft</div>
+                                <div class="experience-title">New Technologist Intern - Software Engineer + PM</div>
+                                <div class="experience-team">Azure AI & Product Development</div>
+                                <div class="experience-summary">
+                                    Built a full-stack cultural learning application with React, Python, and Azure OpenAI, leading a 5-person agile team through complete product lifecycle in 7 weeks.
+                                </div>
+                            </div>
+
+                            <div class="experience-card">
+                                <img class="company-logo" src="https://www.washington.edu/brand/files/2014/09/W-Logo_Purple_Hex.png" alt="UW Logo">
+                                <div class="company-icon uw">UW</div>
+                                <div class="experience-company">University of Washington</div>
+                                <div class="experience-title">Lead Undergraduate Teaching Assistant</div>
+                                <div class="experience-team">Paul G. Allen School of CSE</div>
+                                <div class="experience-summary">
+                                    Oversaw grading operations for 500+ student courses while leading weekly lab sections, achieving 4.87/5 student rating across 6 quarters through excellent mentorship.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects Section -->
+                    <section class="content-section" id="projects-section">
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-title">Personal Finance Tracking Application</div>
+                                <div class="project-description">
+                                    A full-stack finance tracker with React frontend and Django backend, reducing user budgeting time by 85%. Features responsive UI and analytics dashboard for monthly expense and income visualization.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Django</span>
+                                    <span class="tech-badge">AWS</span>
+                                    <span class="tech-badge">Git</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/lucasdhar/Personal-Finance-App" class="project-link">GitHub</a>
+                                    <a href="https://youtu.be/44NWbF77Jag" class="project-link">Demo</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-title">ACES Enrichment Center Websites</div>
+                                <div class="project-description">
+                                    Redesigned and modernized three websites using React and Firebase, implementing responsive layouts and optimized performance, resulting in a 200% increase in SEO rankings and 75% higher traffic.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">Firebase</span>
+                                    <span class="tech-badge">Figma</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/lucasdhar" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-title">Microsoft Cultural Learning App</div>
+                                <div class="project-description">
+                                    Full-stack cultural learning application built during Microsoft internship. Integrated Azure services and OpenAI to personalize learning content and improve user engagement through intelligent recommendations.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">Azure</span>
+                                    <span class="tech-badge">OpenAI</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/lucasdhar" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Technologies Section -->
+                    <section class="content-section" id="technologies-section">
+                        <h3>Technologies & Frameworks</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java">
+                                <div>Java</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+                                <div>Python</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="SQL">
+                                <div>SQL</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
+                                <div>React</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                                <div>Node.js</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg" alt="Django">
+                                <div>Django</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" alt="Angular">
+                                <div>Angular</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js">
+                                <div>Next.js</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+                                <div>AWS</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure">
+                                <div>Azure</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase">
+                                <div>Firebase</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+                                <div>Git</div>
                             </div>
                         </div>
 
-                        <div class="experience-card">
-                            <img class="company-logo" src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b" alt="Microsoft Logo">
-                            <div class="company-icon microsoft">MS</div>
-                            <div class="experience-company">Microsoft</div>
-                            <div class="experience-title">New Technologist Intern - Software Engineer + PM</div>
-                            <div class="experience-team">Azure AI & Product Development</div>
-                            <div class="experience-summary">
-                                Built a full-stack cultural learning application with React, Python, and Azure OpenAI, leading a 5-person agile team through complete product lifecycle in 7 weeks.
+                        <h3 style="margin-top: 2rem;">Certificates & Achievements</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+                                <div>AWS Cloud Quest: Cloud Practitioner</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://www.gstatic.com/lamda/images/favicon_v1_150160cddff7f294ce30.svg" alt="Google AI">
+                                <div>Google Generative AI: Prompting Essentials</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon emoji">🏆</div>
+                                <div>National Hispanic Honor Award</div>
+                            </div>
+                            <div class="tech-item">
+                                <img class="tech-icon" src="https://www.washington.edu/brand/files/2014/09/W-Logo_Purple_Hex.png" alt="UW">
+                                <div>UW Computer Science</div>
                             </div>
                         </div>
+                    </section>
 
-                        <div class="experience-card">
-                            <img class="company-logo" src="https://www.washington.edu/brand/files/2014/09/W-Logo_Purple_Hex.png" alt="UW Logo">
-                            <div class="company-icon uw">UW</div>
-                            <div class="experience-company">University of Washington</div>
-                            <div class="experience-title">Lead Undergraduate Teaching Assistant</div>
-                            <div class="experience-team">Paul G. Allen School of CSE</div>
-                            <div class="experience-summary">
-                                Oversaw grading operations for 500+ student courses while leading weekly lab sections, achieving 4.87/5 student rating across 6 quarters through excellent mentorship.
-                            </div>
+                    <!-- Contact Section -->
+                    <section class="content-section" id="contact-section">
+                        <div class="connect-grid">
+                            <a href="https://www.linkedin.com/in/lucas-dhar/" class="connect-link">
+                                <span><img class="tech-icon" src="./assets/icons/linkedin.png" alt="Linkedin"></span>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/lucasdhar" class="connect-link">
+                                <span><img class="tech-icon" src="./assets/icons/github.png"  alt="GitHub"></span>
+                                GitHub
+                            </a>
+                            <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
+                                <span><img class="tech-icon" src="./assets/icons/email.png"  alt="Email"></span>
+                                Email
+                            </a>
+                            <a href="tel:512-226-3441" class="connect-link">
+                                <span><img class="tech-icon" src="./assets/icons/phone.png"  alt="Phone"></span>
+                                Phone
+                            </a>
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </div>
 
-            <!-- Projects Window -->
-            <div class="window" id="projects-window" data-window="projects">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">🚀</span>
-                        Featured Projects
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
-                </div>
-                <div class="window-content">
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-title">Personal Finance Tracking Application</div>
-                            <div class="project-description">
-                                A full-stack finance tracker with React frontend and Django backend, reducing user budgeting time by 85%. Features responsive UI and analytics dashboard for monthly expense and income visualization.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Django</span>
-                                <span class="tech-badge">AWS</span>
-                                <span class="tech-badge">Git</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/lucasdhar/Personal-Finance-App" class="project-link">GitHub</a>
-                                <a href="https://youtu.be/44NWbF77Jag" class="project-link">Demo</a>
-                            </div>
+                <!-- Model Content -->
+                <div class="content-tab" id="model-content">
+                    <section class="model-section">
+                        <h2>About Me</h2>
+                        <div class="hero-image">
+                            Main Hero Image Placeholder
                         </div>
-
-                        <div class="project-card">
-                            <div class="project-title">ACES Enrichment Center Websites</div>
-                            <div class="project-description">
-                                Redesigned and modernized three websites using React and Firebase, implementing responsive layouts and optimized performance, resulting in a 200% increase in SEO rankings and 75% higher traffic.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">JavaScript</span>
-                                <span class="tech-badge">Firebase</span>
-                                <span class="tech-badge">Figma</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/lucasdhar" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <div class="project-title">Microsoft Cultural Learning App</div>
-                            <div class="project-description">
-                                Full-stack cultural learning application built during Microsoft internship. Integrated Azure services and OpenAI to personalize learning content and improve user engagement through intelligent recommendations.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Python</span>
-                                <span class="tech-badge">Azure</span>
-                                <span class="tech-badge">OpenAI</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/lucasdhar" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technologies Window -->
-            <div class="window" id="technologies-window" data-window="technologies">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">⚙️</span>
-                        Technologies & Certificates
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
-                </div>
-                <div class="window-content">
-                    <h3>Technologies & Frameworks</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java">
-                            <div>Java</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
-                            <div>Python</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="SQL">
-                            <div>SQL</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
-                            <div>React</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                            <div>Node.js</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg" alt="Django">
-                            <div>Django</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" alt="Angular">
-                            <div>Angular</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js">
-                            <div>Next.js</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
-                            <div>AWS</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure">
-                            <div>Azure</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase">
-                            <div>Firebase</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
-                            <div>Git</div>
-                        </div>
-                    </div>
-
-                    <h3 style="margin-top: 3rem;">Certificates & Achievements</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
-                            <div>AWS Cloud Quest: Cloud Practitioner</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://www.gstatic.com/lamda/images/favicon_v1_150160cddff7f294ce30.svg" alt="Google AI">
-                            <div>Google Generative AI: Prompting Essentials</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">🏆</div>
-                            <div>National Hispanic Honor Award</div>
-                        </div>
-                        <div class="tech-item">
-                            <img class="tech-icon" src="https://www.washington.edu/brand/files/2014/09/W-Logo_Purple_Hex.png" alt="UW">
-                            <div>UW Computer Science</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Connect Window -->
-            <div class="window" id="connect-window" data-window="connect">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">📱</span>
-                        Connect With Me
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
-                </div>
-                <div class="window-content">
-                    <div class="connect-grid">
-                        <a href="https://www.linkedin.com/in/lucas-dhar/" class="connect-link">
-                            <span><img class="tech-icon" src="./assets/icons/linkedin.png" alt="Linkedin"></span>
-                            LinkedIn
-                        </a>
-                        <a href="https://github.com/lucasdhar" class="connect-link">
-                            <span><img class="tech-icon" src="./assets/icons/github.png"  alt="GitHub"></span>
-                            GitHub
-                        </a>
-                        <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
-                            <span><img class="tech-icon" src="./assets/icons/email.png"  alt="Email"></span>
-                            Email
-                        </a>
-                        <a href="tel:512-226-3441" class="connect-link">
-                            <span><img class="tech-icon" src="./assets/icons/phone.png"  alt="Phone"></span>
-                            Phone
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Model Portfolio Window -->
-            <div class="window" id="model-window" data-window="model">
-                <div class="window-header">
-                    <div class="window-title">
-                        <span class="window-icon">📸</span>
-                        Model Portfolio
-                    </div>
-                    <div class="window-controls">
-                        <button class="window-btn minimize">−</button>
-                        <button class="window-btn maximize">□</button>
-                        <button class="window-btn close">×</button>
-                    </div>
-                </div>
-                <div class="window-content model-content">
-                    <h2>About Me</h2>
-                    <div class="hero-image">
-                        Main Hero Image Placeholder
-                    </div>
-                    <div class="about-content">
                         <p>Welcome to my modeling portfolio! I'm passionate about fashion, photography, and creative expression. With a focus on editorial and commercial work, I bring versatility and professionalism to every shoot.</p>
                         <br>
                         <p>Currently available for collaborations with photographers, brands, and creative agencies. Let's create something beautiful together!</p>
-                    </div>
 
-                    <h3 style="margin-top: 2rem;">Portfolio Gallery</h3>
-                    <div class="gallery-container">
-                        <div class="gallery" id="gallery">
-                            <div class="gallery-item">Portrait 1</div>
-                            <div class="gallery-item">Fashion 1</div>
-                            <div class="gallery-item">Editorial 1</div>
-                            <div class="gallery-item">Commercial 1</div>
-                            <div class="gallery-item">Portrait 2</div>
-                            <div class="gallery-item">Fashion 2</div>
-                            <div class="gallery-item">Editorial 2</div>
-                            <div class="gallery-item">Commercial 2</div>
-                            <div class="gallery-item">Portrait 1</div>
-                            <div class="gallery-item">Fashion 1</div>
-                            <div class="gallery-item">Editorial 1</div>
-                            <div class="gallery-item">Commercial 1</div>
-                            <div class="gallery-item">Portrait 2</div>
-                            <div class="gallery-item">Fashion 2</div>
-                            <div class="gallery-item">Editorial 2</div>
-                            <div class="gallery-item">Commercial 2</div>
+                        <h3 style="margin-top: 2rem;">Portfolio Gallery</h3>
+                        <div class="gallery-container">
+                            <div class="gallery" id="gallery">
+                                <div class="gallery-item">Portrait 1</div>
+                                <div class="gallery-item">Fashion 1</div>
+                                <div class="gallery-item">Editorial 1</div>
+                                <div class="gallery-item">Commercial 1</div>
+                                <div class="gallery-item">Portrait 2</div>
+                                <div class="gallery-item">Fashion 2</div>
+                                <div class="gallery-item">Editorial 2</div>
+                                <div class="gallery-item">Commercial 2</div>
+                                <div class="gallery-item">Portrait 1</div>
+                                <div class="gallery-item">Fashion 1</div>
+                                <div class="gallery-item">Editorial 1</div>
+                                <div class="gallery-item">Commercial 1</div>
+                                <div class="gallery-item">Portrait 2</div>
+                                <div class="gallery-item">Fashion 2</div>
+                                <div class="gallery-item">Editorial 2</div>
+                                <div class="gallery-item">Commercial 2</div>
+                            </div>
                         </div>
-                    </div>
 
-                    <h3 style="margin-top: 2rem;">Professional Details</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">📏</div>
-                            <div>Height: 5'8"</div>
+                        <h3 style="margin-top: 2rem;">Professional Details</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-icon emoji">📏</div>
+                                <div>Height: 5'8"</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon emoji">👗</div>
+                                <div>Size: 6-8</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon emoji">👠</div>
+                                <div>Shoe: 8.5</div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon emoji">🎭</div>
+                                <div>Experience: 3+ Years</div>
+                            </div>
                         </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">👗</div>
-                            <div>Size: 6-8</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">👠</div>
-                            <div>Shoe: 8.5</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">🎭</div>
-                            <div>Experience: 3+ Years</div>
-                        </div>
-                    </div>
 
-                    <h3 style="margin-top: 2rem;">Connect</h3>
-                    <div class="connect-grid">
-                        <a href="#" class="connect-link">
-                            <span> <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Instagram"></span>
-                            Instagram
-                        </a>
-                        <a href="#" class="connect-link">
-                            <span>🎵</span>
-                            TikTok
-                        </a>
-                        <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
-                            <span>📧</span>
-                            Email
-                        </a>
-                        <a href="#" class="connect-link">
-                            <span>📋</span>
-                            Book Me
-                        </a>
-                    </div>
+                        <h3 style="margin-top: 2rem;">Connect</h3>
+                        <div class="connect-grid">
+                            <a href="#" class="connect-link">
+                                <span> <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Instagram"></span>
+                                Instagram
+                            </a>
+                            <a href="#" class="connect-link">
+                                <span>🎵</span>
+                                TikTok
+                            </a>
+                            <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
+                                <span>📧</span>
+                                Email
+                            </a>
+                            <a href="#" class="connect-link">
+                                <span>📋</span>
+                                Book Me
+                            </a>
+                        </div>
+                    </section>
                 </div>
-            </div>
-        </div>
-
-        <!-- Taskbar -->
-        <div class="taskbar">
-            <div class="taskbar-start">
-                <div class="taskbar-logo">
-                    <span class="logo-text">Lucas Dhar</span>
-                </div>
-            </div>
-            <div class="taskbar-center">
-                <div class="taskbar-windows" id="taskbar-windows"></div>
-            </div>
-            <div class="taskbar-end">
-                <div class="mode-toggle" onclick="toggleMode()">
-                    <span class="mode-icon">🌙</span>
-                    <div class="mode-slider"></div>
-                    <span class="mode-icon">☀️</span>
-                </div>
-                <div class="taskbar-time" id="taskbar-time"></div>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
-    <script src="js/desktop.js"></script>
+    <script src="js/card.js"></script>
 </body>
 </html>
