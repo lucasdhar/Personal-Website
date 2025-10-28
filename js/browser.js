@@ -143,19 +143,17 @@ function openWindow(windowId) {
         windowElement.classList.add('open', 'opening');
         windowElement.classList.remove('minimized');
 
-        // Position window in center with slight offset based on open windows
+        // Position window more towards the left side to avoid covering the photo
         const openWindows = document.querySelectorAll('.window.open').length;
-        const offset = (openWindows - 1) * 25;
+        const offset = (openWindows - 1) * 30;
 
-        // Get the content to size the window appropriately
-        const content = windowElement.querySelector('.window-content');
+        // Position windows on the left side of the screen
+        // Start at 80px from left, add offset for stacking
+        const leftPosition = 80 + offset;
+        const topPosition = 120 + offset; // Below the tabs
 
-        // Set initial position
-        const centerX = (window.innerWidth - 500) / 2 + offset;
-        const centerY = (window.innerHeight - 400) / 2 + offset + 20; // +20 for tabs
-
-        windowElement.style.left = `${Math.max(20, centerX)}px`;
-        windowElement.style.top = `${Math.max(60, centerY)}px`;
+        windowElement.style.left = `${leftPosition}px`;
+        windowElement.style.top = `${topPosition}px`;
 
         bringToFront(windowElement);
 
