@@ -1,0 +1,769 @@
+/* Chrome-style Browser Tabs */
+.browser-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0, 0, 18, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: flex-end;
+    padding: 0 10px;
+    z-index: 1000;
+    border-bottom: 1px solid #00ffea;
+}
+
+body.light-mode .browser-tabs {
+    background: rgba(245, 245, 245, 0.98);
+    border-bottom-color: #ccc;
+}
+
+body.model-active .browser-tabs {
+    border-bottom-color: #d4af37;
+}
+
+.chrome-tab {
+    position: relative;
+    height: 36px;
+    min-width: 180px;
+    max-width: 240px;
+    background: rgba(50, 50, 50, 0.9);
+    margin-right: 2px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: all 0.2s ease;
+    color: #888;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    border-bottom: none;
+}
+
+body.light-mode .chrome-tab {
+    background: rgba(220, 220, 220, 0.9);
+}
+
+.chrome-tab.active {
+    background: #000012;
+    color: #00ffea;
+    border-color: #00ffea;
+    border-bottom: none;
+    z-index: 10;
+}
+
+body.light-mode .chrome-tab.active {
+    background: #ffffff;
+    color: #0066cc;
+    border-color: #0066cc;
+}
+
+body.model-active .chrome-tab.active {
+    color: #d4af37;
+    border-color: #d4af37;
+}
+
+.chrome-tab:not(.active):hover {
+    background: rgba(70, 70, 70, 0.9);
+    color: #aaa;
+}
+
+body.light-mode .chrome-tab:not(.active):hover {
+    background: rgba(200, 200, 200, 0.9);
+}
+
+.tab-icon {
+    font-size: 1.1rem;
+}
+
+.tab-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.tab-filler {
+    flex: 1;
+}
+
+/* Engineer View - Split Screen */
+.engineer-view {
+    display: none;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.engineer-view.active {
+    display: block;
+}
+
+.split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Left Side: Browser Window */
+.browser-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 18, 0.95);
+    border-right: 2px solid #00ffea;
+    overflow: hidden;
+}
+
+body.light-mode .browser-window {
+    background: rgba(255, 255, 255, 0.95);
+    border-right-color: #0066cc;
+}
+
+/* Card Header */
+.card-header {
+    padding: 30px 40px;
+    border-bottom: 2px solid #00ffea;
+    text-align: center;
+    background: rgba(0, 255, 234, 0.05);
+}
+
+body.light-mode .card-header {
+    border-bottom-color: #0066cc;
+    background: rgba(0, 100, 150, 0.05);
+}
+
+/* Welcome Section */
+.welcome-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ffea;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+body.light-mode .welcome-text {
+    color: #0066cc;
+}
+
+.name-highlight {
+    color: #ff00ea;
+}
+
+body.light-mode .name-highlight {
+    color: #0099ff;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #00ffea;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+body.light-mode .tagline {
+    color: #0066cc;
+}
+
+/* Desktop Icons Navigation */
+.desktop-icons-nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.desktop-icon-btn {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 2px solid transparent;
+    padding: 15px 10px;
+    font-family: inherit;
+}
+
+.desktop-icon-btn:hover {
+    background: rgba(0, 255, 234, 0.15);
+    border-color: #00ffea;
+    transform: scale(1.05);
+}
+
+body.light-mode .desktop-icon-btn:hover {
+    background: rgba(0, 100, 150, 0.15);
+    border-color: #0066cc;
+}
+
+.desktop-icon-btn .icon-image {
+    font-size: 3.5rem;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(0, 255, 234, 0.1);
+    border: 2px solid #00ffea;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .desktop-icon-btn .icon-image {
+    background: rgba(0, 100, 150, 0.1);
+    border-color: #0066cc;
+}
+
+.desktop-icon-btn:hover .icon-image {
+    background: rgba(0, 255, 234, 0.2);
+    transform: translateY(-3px);
+}
+
+body.light-mode .desktop-icon-btn:hover .icon-image {
+    background: rgba(0, 100, 150, 0.2);
+}
+
+.desktop-icon-btn .icon-label {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #00ffea;
+    font-weight: 500;
+}
+
+body.light-mode .desktop-icon-btn .icon-label {
+    color: #0066cc;
+}
+
+/* Right Side: Profile Image */
+.profile-image-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: rgba(0, 0, 18, 0.95);
+}
+
+body.light-mode .profile-image-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.profile-image-wrapper {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    border-radius: 20px;
+    border: 3px solid #00ffea;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 255, 234, 0.3);
+}
+
+body.light-mode .profile-image-wrapper {
+    border-color: #0066cc;
+    box-shadow: 0 20px 60px rgba(0, 100, 150, 0.3);
+}
+
+.profile-image-wrapper img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 160px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image-wrapper .dark-image {
+    opacity: 1;
+}
+
+.profile-image-wrapper .light-image {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body.light-mode .profile-image-wrapper .dark-image {
+    opacity: 0;
+}
+
+body.light-mode .profile-image-wrapper .light-image {
+    opacity: 1;
+}
+
+/* Popup Windows Container */
+.windows-container {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 40px);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.windows-container * {
+    pointer-events: auto;
+}
+
+/* Compact Window Styling */
+.window.compact {
+    position: absolute;
+    min-width: 450px;
+    width: auto;
+    min-height: 300px;
+    height: auto;
+    max-width: 85vw;
+    max-height: calc(100vh - 100px);
+    background: rgba(0, 0, 18, 0.98);
+    border: 2px solid #00ffea;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0, 255, 234, 0.4);
+    backdrop-filter: blur(20px);
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+    overflow: hidden;
+}
+
+body.light-mode .window.compact {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: #0066cc;
+    box-shadow: 0 15px 50px rgba(0, 100, 150, 0.4);
+}
+
+.window.compact.open {
+    display: flex;
+}
+
+.window.compact.active {
+    z-index: 100;
+}
+
+.window.compact.minimized {
+    display: none;
+}
+
+.window.compact.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 40px) !important;
+    max-width: 100vw !important;
+    max-height: calc(100vh - 40px) !important;
+    border-radius: 0;
+}
+
+/* Window Header */
+.window-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: rgba(0, 255, 234, 0.1);
+    border-bottom: 1px solid #00ffea;
+    cursor: move;
+    user-select: none;
+    min-height: 40px;
+}
+
+body.light-mode .window-header {
+    background: rgba(0, 100, 150, 0.1);
+    border-bottom-color: #0066cc;
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #00ffea;
+    font-size: 0.95rem;
+}
+
+body.light-mode .window-title {
+    color: #0066cc;
+}
+
+.window-icon {
+    font-size: 1.1rem;
+}
+
+/* Window Controls */
+.window-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.window-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: #00ffea;
+}
+
+body.light-mode .window-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: #0066cc;
+}
+
+.window-btn.minimize:hover {
+    background: #ffc107;
+    color: #000;
+}
+
+.window-btn.maximize:hover {
+    background: #4caf50;
+    color: #fff;
+}
+
+.window-btn.close:hover {
+    background: #f44336;
+    color: #fff;
+}
+
+/* Window Content - Compact */
+.window.compact .window-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.5rem;
+    max-height: calc(100vh - 150px);
+}
+
+.window.compact .window-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.window.compact .window-content::-webkit-scrollbar-track {
+    background: rgba(0, 255, 234, 0.1);
+}
+
+body.light-mode .window.compact .window-content::-webkit-scrollbar-track {
+    background: rgba(0, 100, 150, 0.1);
+}
+
+.window.compact .window-content::-webkit-scrollbar-thumb {
+    background: #00ffea;
+    border-radius: 3px;
+}
+
+body.light-mode .window.compact .window-content::-webkit-scrollbar-thumb {
+    background: #0066cc;
+}
+
+.window-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #00ffea;
+    margin-bottom: 0.5rem;
+}
+
+body.light-mode .window-content p {
+    color: #333;
+}
+
+.window-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #ff00ea;
+}
+
+body.light-mode .window-content h3 {
+    color: #0099ff;
+}
+
+/* Compact Grid Layouts */
+.window.compact .experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.window.compact .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.window.compact .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.window.compact .connect-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* Animation for window opening */
+@keyframes windowOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.window.opening {
+    animation: windowOpen 0.2s ease;
+}
+
+/* Model View - Full Screen Website */
+.model-view {
+    display: none;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000012;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body.light-mode .model-view {
+    background: #ffffff;
+}
+
+body.model-active:not(.light-mode) .model-view {
+    background: #1a1a1a;
+}
+
+.model-view.active {
+    display: block;
+}
+
+.model-website {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.model-section {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.model-section h2 {
+    font-size: 3rem;
+    color: #d4af37;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+body.light-mode .model-section h2 {
+    color: #c0a080;
+}
+
+.model-section h3 {
+    font-size: 2.2rem;
+    color: #c0a080;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+body.light-mode .model-section h3 {
+    color: #8b7355;
+}
+
+.model-section p {
+    color: #d4af37;
+    font-size: 1.3rem;
+    line-height: 1.9;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+body.light-mode .model-section p {
+    color: #6b7280;
+}
+
+/* Bottom Controls */
+.bottom-controls {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 999;
+}
+
+.time-display {
+    padding: 12px 20px;
+    background: rgba(0, 0, 18, 0.95);
+    border: 2px solid #00ffea;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00ffea;
+    box-shadow: 0 8px 25px rgba(0, 255, 234, 0.3);
+    backdrop-filter: blur(10px);
+    min-width: 110px;
+    text-align: center;
+}
+
+body.light-mode .time-display {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #0066cc;
+    color: #0066cc;
+    box-shadow: 0 8px 25px rgba(0, 100, 150, 0.3);
+}
+
+body.model-active .time-display {
+    border-color: #d4af37;
+    color: #d4af37;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .browser-window {
+        border-right: none;
+        border-bottom: 2px solid #00ffea;
+        height: 50%;
+    }
+
+    body.light-mode .browser-window {
+        border-bottom-color: #0066cc;
+    }
+
+    .profile-image-section {
+        height: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chrome-tab {
+        min-width: 140px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .card-header {
+        padding: 20px;
+    }
+
+    .welcome-text {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+    }
+
+    .desktop-icons-nav {
+        padding: 20px 10px;
+        gap: 15px;
+    }
+
+    .desktop-icon-btn {
+        width: 85px;
+    }
+
+    .desktop-icon-btn .icon-image {
+        font-size: 2.8rem;
+        width: 65px;
+        height: 65px;
+    }
+
+    .desktop-icon-btn .icon-label {
+        font-size: 0.8rem;
+    }
+
+    .window.compact {
+        min-width: 90vw;
+        max-width: 95vw;
+    }
+
+    .bottom-controls {
+        bottom: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+
+    .time-display {
+        padding: 8px 12px;
+        font-size: 1.1rem;
+        min-width: 90px;
+    }
+
+    .model-website {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chrome-tab {
+        min-width: 110px;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+
+    .tab-icon {
+        font-size: 0.9rem;
+    }
+
+    .welcome-text {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.85rem;
+    }
+
+    .desktop-icon-btn {
+        width: 75px;
+    }
+
+    .desktop-icon-btn .icon-image {
+        font-size: 2.2rem;
+        width: 55px;
+        height: 55px;
+    }
+
+    .time-display {
+        font-size: 1rem;
+        padding: 6px 10px;
+        min-width: 80px;
+    }
+}
