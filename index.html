@@ -7,150 +7,78 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/hybrid.css">
+    <link rel="stylesheet" href="styles/browser.css">
 </head>
 <body>
     <div class="grid-bg"></div>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="mode-toggle" onclick="toggleMode()">
-            <span class="mode-icon">🌙</span>
-            <div class="mode-slider"></div>
-            <span class="mode-icon">☀️</span>
+    <!-- Chrome-style Tabs -->
+    <div class="browser-tabs">
+        <div class="tab chrome-tab active" data-tab="engineer">
+            <span class="tab-icon">💻</span>
+            <span class="tab-title">Software Engineer</span>
         </div>
-        <div class="tab-switcher">
-            <div class="tab-indicator" id="tabIndicator"></div>
-            <button class="tab-button active" data-tab="engineer">Software Engineer</button>
-            <button class="tab-button" data-tab="model">Model</button>
+        <div class="tab chrome-tab" data-tab="model">
+            <span class="tab-icon">📸</span>
+            <span class="tab-title">Model</span>
         </div>
+        <div class="tab-filler"></div>
     </div>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Profile Image -->
-        <div class="profile-image-container">
-            <img class="dark-image" src="./assets/images/dark-image.PNG" alt="Lucas Dhar - Dark Mode">
-            <img class="light-image" src="./assets/images/light-image.PNG" alt="Lucas Dhar - Light Mode">
-        </div>
-
-        <!-- Main Card -->
-        <div class="main-card">
-            <!-- Card Header -->
-            <div class="card-header">
-                <div class="welcome-section">
-                    <h1 class="welcome-text">Hi I'm <span class="name-highlight">Lucas</span></h1>
-                    <p class="tagline">developer & model</p>
+    <!-- Software Engineer View (Split Screen) -->
+    <div class="engineer-view active" id="engineerView">
+        <div class="split-container">
+            <!-- Left Side: Browser Window -->
+            <div class="browser-window">
+                <!-- Card Header -->
+                <div class="card-header">
+                    <div class="welcome-section">
+                        <h1 class="welcome-text">Hi I'm <span class="name-highlight">Lucas</span></h1>
+                        <p class="tagline">developer & model</p>
+                    </div>
                 </div>
+
+                <!-- Desktop Icons Navigation -->
+                <nav class="desktop-icons-nav">
+                    <button class="desktop-icon-btn" data-window="about">
+                        <div class="icon-image">👤</div>
+                        <div class="icon-label">About</div>
+                    </button>
+                    <button class="desktop-icon-btn" data-window="experience">
+                        <div class="icon-image">💼</div>
+                        <div class="icon-label">Experience</div>
+                    </button>
+                    <button class="desktop-icon-btn" data-window="projects">
+                        <div class="icon-image">🛠️</div>
+                        <div class="icon-label">Projects</div>
+                    </button>
+                    <button class="desktop-icon-btn" data-window="technologies">
+                        <div class="icon-image">🔧</div>
+                        <div class="icon-label">Technologies</div>
+                    </button>
+                    <button class="desktop-icon-btn" data-window="contact">
+                        <div class="icon-image">✉️</div>
+                        <div class="icon-label">Contact</div>
+                    </button>
+                </nav>
             </div>
 
-            <!-- Navigation Icons (Software Engineer) -->
-            <nav class="desktop-icons-nav" id="engineerNav">
-                <button class="desktop-icon-btn" data-window="about">
-                    <div class="icon-image">👨‍💻</div>
-                    <div class="icon-label">About</div>
-                </button>
-                <button class="desktop-icon-btn" data-window="experience">
-                    <div class="icon-image">💼</div>
-                    <div class="icon-label">Experience</div>
-                </button>
-                <button class="desktop-icon-btn" data-window="projects">
-                    <div class="icon-image">🚀</div>
-                    <div class="icon-label">Projects</div>
-                </button>
-                <button class="desktop-icon-btn" data-window="technologies">
-                    <div class="icon-image">⚙️</div>
-                    <div class="icon-label">Technologies</div>
-                </button>
-                <button class="desktop-icon-btn" data-window="contact">
-                    <div class="icon-image">📱</div>
-                    <div class="icon-label">Contact</div>
-                </button>
-            </nav>
-
-            <!-- Model Content (Hidden by default, shown when Model tab active) -->
-            <div class="model-content" id="modelContent">
-                <section class="model-section">
-                    <h2>About Me</h2>
-                    <div class="hero-image">
-                        Main Hero Image Placeholder
-                    </div>
-                    <p>Welcome to my modeling portfolio! I'm passionate about fashion, photography, and creative expression. With a focus on editorial and commercial work, I bring versatility and professionalism to every shoot.</p>
-                    <br>
-                    <p>Currently available for collaborations with photographers, brands, and creative agencies. Let's create something beautiful together!</p>
-
-                    <h3 style="margin-top: 2rem;">Portfolio Gallery</h3>
-                    <div class="gallery-container">
-                        <div class="gallery" id="gallery">
-                            <div class="gallery-item">Portrait 1</div>
-                            <div class="gallery-item">Fashion 1</div>
-                            <div class="gallery-item">Editorial 1</div>
-                            <div class="gallery-item">Commercial 1</div>
-                            <div class="gallery-item">Portrait 2</div>
-                            <div class="gallery-item">Fashion 2</div>
-                            <div class="gallery-item">Editorial 2</div>
-                            <div class="gallery-item">Commercial 2</div>
-                            <div class="gallery-item">Portrait 1</div>
-                            <div class="gallery-item">Fashion 1</div>
-                            <div class="gallery-item">Editorial 1</div>
-                            <div class="gallery-item">Commercial 1</div>
-                            <div class="gallery-item">Portrait 2</div>
-                            <div class="gallery-item">Fashion 2</div>
-                            <div class="gallery-item">Editorial 2</div>
-                            <div class="gallery-item">Commercial 2</div>
-                        </div>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Professional Details</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">📏</div>
-                            <div>Height: 5'8"</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">👗</div>
-                            <div>Size: 6-8</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">👠</div>
-                            <div>Shoe: 8.5</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon emoji">🎭</div>
-                            <div>Experience: 3+ Years</div>
-                        </div>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Connect</h3>
-                    <div class="connect-grid">
-                        <a href="#" class="connect-link">
-                            <span>📷</span>
-                            Instagram
-                        </a>
-                        <a href="#" class="connect-link">
-                            <span>🎵</span>
-                            TikTok
-                        </a>
-                        <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
-                            <span>📧</span>
-                            Email
-                        </a>
-                        <a href="#" class="connect-link">
-                            <span>📋</span>
-                            Book Me
-                        </a>
-                    </div>
-                </section>
+            <!-- Right Side: Profile Image -->
+            <div class="profile-image-section">
+                <div class="profile-image-wrapper">
+                    <img class="dark-image" src="./assets/images/dark-image.PNG" alt="Lucas Dhar - Dark Mode">
+                    <img class="light-image" src="./assets/images/light-image.PNG" alt="Lucas Dhar - Light Mode">
+                </div>
             </div>
         </div>
 
         <!-- Popup Windows Container -->
         <div class="windows-container">
             <!-- About Window -->
-            <div class="window" id="about-window" data-window="about">
+            <div class="window compact" id="about-window" data-window="about">
                 <div class="window-header">
                     <div class="window-title">
-                        <span class="window-icon">👨‍💻</span>
+                        <span class="window-icon">👤</span>
                         About Me
                     </div>
                     <div class="window-controls">
@@ -167,7 +95,7 @@
             </div>
 
             <!-- Experience Window -->
-            <div class="window" id="experience-window" data-window="experience">
+            <div class="window compact" id="experience-window" data-window="experience">
                 <div class="window-header">
                     <div class="window-title">
                         <span class="window-icon">💼</span>
@@ -218,10 +146,10 @@
             </div>
 
             <!-- Projects Window -->
-            <div class="window" id="projects-window" data-window="projects">
+            <div class="window compact" id="projects-window" data-window="projects">
                 <div class="window-header">
                     <div class="window-title">
-                        <span class="window-icon">🚀</span>
+                        <span class="window-icon">🛠️</span>
                         Featured Projects
                     </div>
                     <div class="window-controls">
@@ -285,10 +213,10 @@
             </div>
 
             <!-- Technologies Window -->
-            <div class="window" id="technologies-window" data-window="technologies">
+            <div class="window compact" id="technologies-window" data-window="technologies">
                 <div class="window-header">
                     <div class="window-title">
-                        <span class="window-icon">⚙️</span>
+                        <span class="window-icon">🔧</span>
                         Technologies & Certificates
                     </div>
                     <div class="window-controls">
@@ -350,7 +278,7 @@
                         </div>
                     </div>
 
-                    <h3 style="margin-top: 2rem;">Certificates & Achievements</h3>
+                    <h3 style="margin-top: 1.5rem;">Certificates & Achievements</h3>
                     <div class="tech-grid">
                         <div class="tech-item">
                             <img class="tech-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
@@ -373,10 +301,10 @@
             </div>
 
             <!-- Contact Window -->
-            <div class="window" id="contact-window" data-window="contact">
+            <div class="window compact" id="contact-window" data-window="contact">
                 <div class="window-header">
                     <div class="window-title">
-                        <span class="window-icon">📱</span>
+                        <span class="window-icon">✉️</span>
                         Connect With Me
                     </div>
                     <div class="window-controls">
@@ -409,10 +337,94 @@
         </div>
     </div>
 
-    <!-- Time Display (Bottom Right) -->
-    <div class="time-display" id="timeDisplay"></div>
+    <!-- Model View (Full Screen Website) -->
+    <div class="model-view" id="modelView">
+        <div class="model-website">
+            <section class="model-section">
+                <h2>About Me</h2>
+                <div class="hero-image">
+                    Main Hero Image Placeholder
+                </div>
+                <p>Welcome to my modeling portfolio! I'm passionate about fashion, photography, and creative expression. With a focus on editorial and commercial work, I bring versatility and professionalism to every shoot.</p>
+                <br>
+                <p>Currently available for collaborations with photographers, brands, and creative agencies. Let's create something beautiful together!</p>
+
+                <h3 style="margin-top: 2rem;">Portfolio Gallery</h3>
+                <div class="gallery-container">
+                    <div class="gallery" id="gallery">
+                        <div class="gallery-item">Portrait 1</div>
+                        <div class="gallery-item">Fashion 1</div>
+                        <div class="gallery-item">Editorial 1</div>
+                        <div class="gallery-item">Commercial 1</div>
+                        <div class="gallery-item">Portrait 2</div>
+                        <div class="gallery-item">Fashion 2</div>
+                        <div class="gallery-item">Editorial 2</div>
+                        <div class="gallery-item">Commercial 2</div>
+                        <div class="gallery-item">Portrait 1</div>
+                        <div class="gallery-item">Fashion 1</div>
+                        <div class="gallery-item">Editorial 1</div>
+                        <div class="gallery-item">Commercial 1</div>
+                        <div class="gallery-item">Portrait 2</div>
+                        <div class="gallery-item">Fashion 2</div>
+                        <div class="gallery-item">Editorial 2</div>
+                        <div class="gallery-item">Commercial 2</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Professional Details</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon emoji">📏</div>
+                        <div>Height: 5'8"</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon emoji">👗</div>
+                        <div>Size: 6-8</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon emoji">👠</div>
+                        <div>Shoe: 8.5</div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon emoji">🎭</div>
+                        <div>Experience: 3+ Years</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Connect</h3>
+                <div class="connect-grid">
+                    <a href="#" class="connect-link">
+                        <span>📷</span>
+                        Instagram
+                    </a>
+                    <a href="#" class="connect-link">
+                        <span>🎵</span>
+                        TikTok
+                    </a>
+                    <a href="mailto:lucas.dhar@gmail.com" class="connect-link">
+                        <span>📧</span>
+                        Email
+                    </a>
+                    <a href="#" class="connect-link">
+                        <span>📋</span>
+                        Book Me
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Bottom Right Controls -->
+    <div class="bottom-controls">
+        <div class="mode-toggle" onclick="toggleMode()">
+            <span class="mode-icon">🌙</span>
+            <div class="mode-slider"></div>
+            <span class="mode-icon">☀️</span>
+        </div>
+        <div class="time-display" id="timeDisplay"></div>
+    </div>
 
     <script src="js/main.js"></script>
-    <script src="js/hybrid.js"></script>
+    <script src="js/browser.js"></script>
 </body>
 </html>
