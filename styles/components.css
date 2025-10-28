@@ -747,6 +747,14 @@ body.model-active:not(.light-mode) .gallery-item {
     box-shadow: 0 10px 30px rgba(192, 160, 128, 0.3);
 }
 
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Makes it crop cleanly */
+  object-position: center; /* Keeps the subject centered */
+  display: block;
+}
+
 /* Connect Section */
 .connect-grid {
     display: grid;
