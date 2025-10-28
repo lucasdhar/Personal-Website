@@ -226,14 +226,16 @@ function startDragging(windowElement, e) {
     document.addEventListener('mousemove', onDrag);
     document.addEventListener('mouseup', stopDragging);
 
-    windowElement.style.cursor = 'grabbing';
+    // Add dragging class for visual feedback
+    windowElement.classList.add('dragging');
+    document.body.style.cursor = 'grabbing';
     e.preventDefault();
 }
 
 function onDrag(e) {
     if (!windowState.dragging || !windowState.draggedWindow) return;
 
-    const window = windowState.draggedWindow;
+    const windowElement = windowState.draggedWindow;
     const x = e.clientX - windowState.offsetX;
     const y = e.clientY - windowState.offsetY;
 
@@ -241,15 +243,16 @@ function onDrag(e) {
     const maxX = window.innerWidth - 100;
     const maxY = window.innerHeight - 100;
 
-    window.style.left = `${Math.max(0, Math.min(x, maxX))}px`;
-    window.style.top = `${Math.max(40, Math.min(y, maxY))}px`; // Min 40 for tabs
+    windowElement.style.left = `${Math.max(0, Math.min(x, maxX))}px`;
+    windowElement.style.top = `${Math.max(40, Math.min(y, maxY))}px`; // Min 40 for tabs
 }
 
 function stopDragging() {
     if (windowState.draggedWindow) {
-        windowState.draggedWindow.style.cursor = 'default';
+        windowState.draggedWindow.classList.remove('dragging');
     }
 
+    document.body.style.cursor = '';
     windowState.dragging = false;
     windowState.draggedWindow = null;
 
