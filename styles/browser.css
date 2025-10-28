@@ -125,12 +125,17 @@ body.light-mode .browser-window {
     border-right-color: #0066cc;
 }
 
-/* Card Header */
+/* Card Header - Takes up half the left side */
 .card-header {
-    padding: 30px 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
     border-bottom: 2px solid #00ffea;
     text-align: center;
     background: rgba(0, 255, 234, 0.05);
+    min-height: 50%;
 }
 
 body.light-mode .card-header {
@@ -138,12 +143,16 @@ body.light-mode .card-header {
     background: rgba(0, 100, 150, 0.05);
 }
 
+.welcome-section {
+    width: 100%;
+}
+
 /* Welcome Section */
 .welcome-text {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #00ffea;
-    margin: 0 0 10px 0;
+    margin: 0 0 20px 0;
     line-height: 1.2;
 }
 
@@ -160,11 +169,11 @@ body.light-mode .name-highlight {
 }
 
 .tagline {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #00ffea;
     font-weight: 500;
     text-transform: lowercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin: 0;
 }
 
@@ -172,7 +181,7 @@ body.light-mode .tagline {
     color: #0066cc;
 }
 
-/* Desktop Icons Navigation */
+/* Desktop Icons Navigation - Takes up other half */
 .desktop-icons-nav {
     flex: 1;
     display: flex;
@@ -181,6 +190,7 @@ body.light-mode .tagline {
     padding: 40px 20px;
     flex-wrap: wrap;
     gap: 20px;
+    min-height: 50%;
 }
 
 .desktop-icon-btn {
@@ -354,6 +364,15 @@ body.light-mode .window.compact {
     z-index: 100;
 }
 
+.window.compact.dragging {
+    box-shadow: 0 25px 80px rgba(0, 255, 234, 0.6);
+    transition: none;
+}
+
+body.light-mode .window.compact.dragging {
+    box-shadow: 0 25px 80px rgba(0, 100, 150, 0.6);
+}
+
 .window.compact.minimized {
     display: none;
 }
@@ -376,9 +395,13 @@ body.light-mode .window.compact {
     padding: 10px 14px;
     background: rgba(0, 255, 234, 0.1);
     border-bottom: 1px solid #00ffea;
-    cursor: move;
+    cursor: grab;
     user-select: none;
     min-height: 40px;
+}
+
+.window-header:active {
+    cursor: grabbing;
 }
 
 body.light-mode .window-header {
