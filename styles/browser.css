@@ -398,6 +398,7 @@ body.light-mode .window.compact.dragging {
     cursor: grab;
     user-select: none;
     min-height: 40px;
+    gap: 12px;
 }
 
 .window-header:active {
@@ -409,6 +410,52 @@ body.light-mode .window-header {
     border-bottom-color: #0066cc;
 }
 
+/* Browser Dots (macOS-style) */
+.browser-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.dot-red {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
+}
+
+.dot-yellow {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+}
+
+.dot-green {
+    background: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+.window:hover .dot-red:hover {
+    background: #ff3b30;
+    cursor: pointer;
+}
+
+.window:hover .dot-yellow:hover {
+    background: #ffaa00;
+    cursor: pointer;
+}
+
+.window:hover .dot-green:hover {
+    background: #00d647;
+    cursor: pointer;
+}
+
 .window-title {
     display: flex;
     align-items: center;
@@ -416,6 +463,7 @@ body.light-mode .window-header {
     font-weight: 600;
     color: #00ffea;
     font-size: 0.95rem;
+    flex: 1;
 }
 
 body.light-mode .window-title {
