@@ -1,0 +1,428 @@
+/* Container Layout */
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 60px;
+}
+
+/* Profile Image - Positioned to the right of card */
+.profile-image-container {
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    border: 3px solid #00ffea;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 255, 234, 0.3);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    order: 2;
+}
+
+body.light-mode .profile-image-container {
+    border-color: #0066cc;
+    box-shadow: 0 20px 60px rgba(0, 100, 150, 0.3);
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image-container .dark-image {
+    opacity: 1;
+}
+
+.profile-image-container .light-image {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body.light-mode .profile-image-container .dark-image {
+    opacity: 0;
+}
+
+body.light-mode .profile-image-container .light-image {
+    opacity: 1;
+}
+
+.profile-image-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Main Card - The "Computer Screen" */
+.main-card {
+    width: 900px;
+    max-width: 90vw;
+    min-height: 700px;
+    background: rgba(0, 0, 18, 0.95);
+    border: 3px solid #00ffea;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 255, 234, 0.4);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    order: 1;
+}
+
+body.light-mode .main-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #0066cc;
+    box-shadow: 0 30px 80px rgba(0, 100, 150, 0.4);
+}
+
+body.model-active .main-card {
+    border-color: #d4af37;
+    box-shadow: 0 30px 80px rgba(212, 175, 55, 0.4);
+}
+
+/* Card Header */
+.card-header {
+    padding: 30px 40px;
+    border-bottom: 2px solid #00ffea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+body.light-mode .card-header {
+    border-bottom-color: #0066cc;
+}
+
+body.model-active .card-header {
+    border-bottom-color: #d4af37;
+}
+
+/* Welcome Section */
+.welcome-section {
+    flex: 1;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ffea;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+body.light-mode .welcome-text {
+    color: #0066cc;
+}
+
+body.model-active .welcome-text {
+    color: #d4af37;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+.name-highlight {
+    color: #ff00ea;
+}
+
+body.light-mode .name-highlight {
+    color: #0099ff;
+}
+
+body.model-active .name-highlight {
+    color: #c0a080;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #00ffea;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+body.light-mode .tagline {
+    color: #0066cc;
+}
+
+body.model-active .tagline {
+    color: #8b7355;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Mode Toggle (reusing from components.css) */
+
+/* Tab Switcher (reusing from components.css) */
+
+/* Navigation */
+.card-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 40px;
+    background: rgba(0, 255, 234, 0.05);
+    border-bottom: 2px solid #00ffea;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+body.light-mode .card-nav {
+    background: rgba(0, 100, 150, 0.05);
+    border-bottom-color: #0066cc;
+}
+
+body.model-active .card-nav {
+    display: none;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    background: transparent;
+    color: #00ffea;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+body.light-mode .nav-button {
+    color: #0066cc;
+}
+
+.nav-button:hover {
+    background: rgba(0, 255, 234, 0.1);
+    border-color: #00ffea;
+}
+
+body.light-mode .nav-button:hover {
+    background: rgba(0, 100, 150, 0.1);
+    border-color: #0066cc;
+}
+
+.nav-button.active {
+    background: rgba(0, 255, 234, 0.2);
+    border-color: #00ffea;
+    color: #00ffea;
+}
+
+body.light-mode .nav-button.active {
+    background: rgba(0, 100, 150, 0.2);
+    border-color: #0066cc;
+    color: #0066cc;
+}
+
+/* Card Content */
+.card-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 40px;
+}
+
+.card-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card-content::-webkit-scrollbar-track {
+    background: rgba(0, 255, 234, 0.1);
+}
+
+body.light-mode .card-content::-webkit-scrollbar-track {
+    background: rgba(0, 100, 150, 0.1);
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background: #00ffea;
+    border-radius: 5px;
+}
+
+body.light-mode .card-content::-webkit-scrollbar-thumb {
+    background: #0066cc;
+}
+
+.content-tab {
+    display: none;
+}
+
+.content-tab.active {
+    display: block;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #00ffea;
+}
+
+body.light-mode .content-section p {
+    color: #333;
+}
+
+body.model-active .content-section p {
+    color: #d4af37;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+}
+
+/* Model Section Styling */
+.model-section {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.model-section h2 {
+    font-size: 2.5rem;
+    color: #d4af37;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+body.light-mode .model-section h2 {
+    color: #c0a080;
+}
+
+.model-section h3 {
+    font-size: 2rem;
+    color: #c0a080;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.model-section p {
+    color: #d4af37;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+body.light-mode .model-section p {
+    color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .profile-image-container {
+        order: 1;
+        width: 300px;
+        height: 400px;
+    }
+
+    .main-card {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .profile-image-container {
+        width: 250px;
+        height: 330px;
+    }
+
+    .main-card {
+        width: 95vw;
+        min-height: 600px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .welcome-text {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .tagline {
+        text-align: center;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .tab-switcher {
+        width: 100%;
+    }
+
+    .card-nav {
+        padding: 15px 20px;
+        justify-content: center;
+    }
+
+    .nav-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image-container {
+        width: 200px;
+        height: 280px;
+    }
+
+    .welcome-text {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .nav-button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
