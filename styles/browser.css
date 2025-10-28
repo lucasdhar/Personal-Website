@@ -76,16 +76,14 @@ body.light-mode .chrome-tab:not(.active):hover {
     background: rgba(200, 200, 200, 0.9);
 }
 
-.tab-icon {
-    font-size: 1.1rem;
-}
-
 .tab-title {
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 500;
+    text-align: left;
+    padding-left: 4px;
 }
 
 .tab-filler {
@@ -674,8 +672,8 @@ body.model-active .time-display {
 
 @media (max-width: 768px) {
     .chrome-tab {
-        min-width: 140px;
-        padding: 6px 12px;
+        min-width: 150px;
+        padding: 6px 14px;
         font-size: 0.85rem;
     }
 
@@ -734,13 +732,9 @@ body.model-active .time-display {
 
 @media (max-width: 480px) {
     .chrome-tab {
-        min-width: 110px;
-        padding: 4px 8px;
+        min-width: 120px;
+        padding: 4px 10px;
         font-size: 0.75rem;
-    }
-
-    .tab-icon {
-        font-size: 0.9rem;
     }
 
     .welcome-text {
